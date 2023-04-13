@@ -119,7 +119,7 @@ inboundCall:
               globalSpeechRecTerms: false
               targetQueue:
                 lit:
-                  name: Simple Financial 401K queue (Terraform)
+                  name: BT - Simple Financial 401K queue (Terraform)
               preTransferAudio:
                 tts: We will transfer you to a 401K specialist shortly
               failureTransferAudio:
