@@ -142,7 +142,7 @@ inboundCall:
               globalSpeechRecTerms: false
               targetQueue:
                 lit:
-                  name: BT - Simple Financial IRA queue
+                  name: BT - Simple Financial IRA queue (Terraform)
               preTransferAudio:
                 tts: We will transfer you to a 401K specialist shortly
               failureTransferAudio:
