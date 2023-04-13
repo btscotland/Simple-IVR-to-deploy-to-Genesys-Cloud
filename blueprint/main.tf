@@ -24,7 +24,7 @@ resource "genesyscloud_user" "sf_johnsmith" {
   addresses {
 
     phone_numbers {
-      number     = "9205551212"
+      number     = "+19205551212"
       media_type = "PHONE"
       type       = "MOBILE"
     }
@@ -48,7 +48,7 @@ resource "genesyscloud_user" "sf_janesmith" {
   addresses {
 
     phone_numbers {
-      number     = "9205551212"
+      number     = "+19205551212"
       media_type = "PHONE"
       type       = "MOBILE"
     }
@@ -98,7 +98,7 @@ resource "genesyscloud_routing_queue" "queue_K401" {
 }
 
 resource "genesyscloud_flow" "mysimpleflow" {
-  filepath = "./SimpleFinancialIvr_v2-0.yaml"
+  filepath = "./BT-SimpleFinancialIvr_v2-0.yaml"
   file_content_hash = filesha256("./BT-SimpleFinancialIvr_v2-0.yaml") 
 }
 
