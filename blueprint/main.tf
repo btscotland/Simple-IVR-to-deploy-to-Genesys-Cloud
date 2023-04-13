@@ -10,8 +10,11 @@ provider "genesyscloud" {
   sdk_debug = true
 }
 
+
+
+
 resource "genesyscloud_user" "sf_johnsmith" {
-  email           = "john.smith@simplefinancial.com"
+  email           = "john.smith@thomsonsolutions.co.uk"
   name            = "John Smith"
   password        = "b@Zinga1972"
   state           = "active"
@@ -35,7 +38,7 @@ resource "genesyscloud_user" "sf_johnsmith" {
 }
 
 resource "genesyscloud_user" "sf_janesmith" {
-  email           = "jane.smith@simplefinancial.com"
+  email           = "jane.smith@thomsonsolutions.co.uk"
   name            = "Jane Smith"
   password        = "b@Zinga1972"
   state           = "active"
@@ -59,7 +62,7 @@ resource "genesyscloud_user" "sf_janesmith" {
 }
 
 resource "genesyscloud_routing_queue" "queue_ira" {
-  name                     = "Simple Financial IRA queue"
+  name                     = "BT - Simple Financial IRA queue (Terraform)"
   description              = "Simple Financial IRA questions and answers"
   acw_wrapup_prompt        = "MANDATORY_TIMEOUT"
   acw_timeout_ms           = 300000
@@ -75,7 +78,7 @@ resource "genesyscloud_routing_queue" "queue_ira" {
 }
 
 resource "genesyscloud_routing_queue" "queue_K401" {
-  name                     = "Simple Financial 401K queue"
+  name                     = "BT - Simple Financial 401K queue (Terraform)"
   description              = "Simple Financial 401K questions and answers"
   acw_wrapup_prompt        = "MANDATORY_TIMEOUT"
   acw_timeout_ms           = 300000
@@ -96,13 +99,13 @@ resource "genesyscloud_routing_queue" "queue_K401" {
 
 resource "genesyscloud_flow" "mysimpleflow" {
   filepath = "./SimpleFinancialIvr_v2-0.yaml"
-  file_content_hash = filesha256("./SimpleFinancialIvr_v2-0.yaml") 
+  file_content_hash = filesha256("./BT-SimpleFinancialIvr_v2-0.yaml") 
 }
 
 
 resource "genesyscloud_telephony_providers_edges_did_pool" "mygcv_number" {
-  start_phone_number = "+19205422729"
-  end_phone_number   = "+19205422729"
+  start_phone_number = "+14168454232"
+  end_phone_number   = "+14168454232"
   description        = "GCV Number for inbound calls"
   comments           = "Additional comments"
 }
@@ -110,7 +113,7 @@ resource "genesyscloud_telephony_providers_edges_did_pool" "mygcv_number" {
 resource "genesyscloud_architect_ivr" "mysimple_ivr" {
   name               = "A simple IVR"
   description        = "A sample IVR configuration"
-  dnis               = ["+19205422729", "+19205422729"]
+  dnis               = ["+14168454232", "+14168454232"]
   open_hours_flow_id = genesyscloud_flow.mysimpleflow.id
   depends_on         = [
     genesyscloud_flow.mysimpleflow,
